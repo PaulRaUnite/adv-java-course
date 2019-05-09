@@ -25,12 +25,12 @@ public class GroupService {
 
     @Transactional
     public Group getById(Long id) {
-        return groupRepository.findOne(id);
+        return groupRepository.findById(id).orElse(null);
     }
 
     @Transactional
     public void deleteGroup(Long groupId) {
-        groupRepository.delete(groupId);
+        groupRepository.deleteById(groupId);
     }
 
     @Transactional

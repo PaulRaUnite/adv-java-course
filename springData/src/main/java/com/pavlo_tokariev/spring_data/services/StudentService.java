@@ -30,12 +30,12 @@ public class StudentService {
 
 	@Transactional
 	public Student getById(Long id) {
-		return studentRepository.findOne(id);
+		return studentRepository.findById(id).orElse(null);
 	}
 
 	@Transactional
 	public void deleteStudent(Long personId) {
-		studentRepository.delete(personId);
+		studentRepository.deleteById(personId);
 	}
 
 	@Transactional

@@ -51,7 +51,6 @@ public class GroupController {
     @RequestMapping(value = "/group", method = RequestMethod.POST)
     public @ResponseBody HttpStatus upsert(@ModelAttribute("group") Group group,
                       BindingResult result, SessionStatus status) {
-        System.out.println(group);
         return groupService.addGroup(group) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
     }
 }

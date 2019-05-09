@@ -68,9 +68,7 @@ public class StudentController {
     @RequestMapping(value = "/student", method = RequestMethod.POST)
     public HttpStatus insertStudent(@ModelAttribute("student") Student student,
                                     BindingResult result, SessionStatus status) {
-        System.out.println(student);
         student.setGroup(groupService.getById(student.getGroup().getId()));
-        System.out.println(student);
         return studentService.addStudent(student) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
     }
 }
